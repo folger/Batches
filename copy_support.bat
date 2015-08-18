@@ -1,7 +1,3 @@
-for %%X in (%develop%\Origin\*.otp) do (copy %%X %%~nxX)
-for %%X in (%develop%\Origin\*.otw) do (copy %%X %%~nxX)
-for %%X in (%develop%\Origin\*.otm) do (copy %%X %%~nxX)
-for %%X in (%develop%\Origin\*.ini) do (copy %%X %%~nxX)
-for %%X in (%develop%\Origin\*.cnf) do (copy %%X %%~nxX)
-for %%X in (%develop%\Origin\*.bmp) do (copy %%X %%~nxX)
-for %%X in (%develop%\Origin\*.xml) do (copy %%X %%~nxX)
+for %%Y in (otp, otw, otm, ogs, ini, cnf, bmp, xml) do (
+	for %%X in (%develop%\Origin\*.%%Y) do (copy %%X %%~nxX)
+)
