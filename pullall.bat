@@ -5,3 +5,4 @@ for /d %%X in (*) do (
 	git pull
 	popd %%X
 )
+pause
