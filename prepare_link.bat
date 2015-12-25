@@ -4,12 +4,15 @@ Filters ^
 FitFunc ^
 OriginC ^
 Samples ^
-Themes
+Themes ^
+Localization ^
+Hints ^
+Templates
 
 @echo on
 pushd H:\F_C_VC32
 for %%X in (%@folders%) do (
-	rmdir %%X
+	rmdir /s /q %%X
 	mklink /D %%X %develop%\Origin\%%X
 )
 popd
