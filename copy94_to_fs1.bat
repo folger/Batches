@@ -1,10 +1,15 @@
 @echo off
+setlocal enabledelayedexpansion
 set path=C:\Program Files\7-Zip;%path%
-set src=\\poly\Dropbox\Builds-Origin\94\
+set src=%1
 set des=\\fs1\Builds\94\I\
 set zipdes=\\fs1\Released\ZipBuilds\94\
 set build_files=build_files.txt
-for /f "delims=" %%i in ('dir "%src%" /b /ad-h /t:c /od') do set a=%%i
+for /f "delims=" %%i in ('dir "%src%" /b /ad-h /t:c /od') do (
+	set b=%%i
+	set c=!b:Ir94Sr=!
+	if not x!c!==x!b! set a=!b!
+)
 if exist %des%%a% (
 	echo %a% exists on %des% !!!
 ) else (
