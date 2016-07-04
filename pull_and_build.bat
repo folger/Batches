@@ -2,10 +2,10 @@
 
 for /f %%x in ("%date%") do set curdate=%%x
 
-set holiday=0
-if %curdate%==Sat set holiday=1
-if %curdate%==Sun set holiday=1
-if %holiday% == 1 shutdown /s /t 30
+REM set holiday=0
+REM if %curdate%==Sat set holiday=1
+REM if %curdate%==Sun set holiday=1
+REM if %holiday% == 1 shutdown /s /t 30
 
 pushd %develop%
 git pull
