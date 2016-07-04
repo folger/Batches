@@ -7,7 +7,8 @@ Samples ^
 Themes ^
 Localization ^
 Hints ^
-Templates
+Templates ^
+Startup
 
 @echo on
 pushd %~dp0
