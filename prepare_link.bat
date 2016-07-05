@@ -8,7 +8,8 @@ Themes ^
 Localization ^
 Hints ^
 Templates ^
-Startup
+Startup ^
+"Origin Central"
 
 @echo on
 pushd %~dp0
