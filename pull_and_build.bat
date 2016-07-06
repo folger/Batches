@@ -8,10 +8,12 @@ REM if %curdate%==Sun set holiday=1
 REM if %holiday% == 1 shutdown /s /t 30
 
 pushd %develop%
-git pull
-python "%folscode%\Python\BatchBuild\BuildCmd.py" OriginAll --platform=%1 --configuration=%2 --all-output
 
 pushd .git
 call maketags.bat
 popd
+
+git pull
+python "%folscode%\Python\BatchBuild\BuildCmd.py" OriginAll --platform=%1 --configuration=%2 --all-output
+
 popd
