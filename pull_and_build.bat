@@ -15,6 +15,9 @@ pushd .git
 call maketags.bat
 popd
 
-python "%folscode%\Python\BatchBuild\BuildCmd.py" OriginAll --platform=%1 --configuration=%2 --all-output
+call "%VS110COMNTOOLS%..\..\VC\vcvarsall.bat"
+msbuild  "Source\vc32\orgmain\OriginAll.sln" /p:Configuration=%2 /p:Platform=%1 /m
 
 popd
+
+pause
