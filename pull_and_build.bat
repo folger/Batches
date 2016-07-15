@@ -11,6 +11,12 @@ pushd %develop%
 
 git pull --rebase
 
+if %errorlevel%==1 (
+	echo Error when git pull, quit~
+	pause
+	exit /b
+)
+
 pushd .git
 call maketags.bat
 popd
