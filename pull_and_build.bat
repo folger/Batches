@@ -9,7 +9,7 @@ REM if %holiday% == 1 shutdown /s /t 30
 
 pushd %develop%
 
-git pull
+git pull --rebase
 
 pushd .git
 call maketags.bat
