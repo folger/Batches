@@ -4,13 +4,12 @@ choice /c 12345 /m "How many commits?"
 
 set numcommits=%errorlevel%
 
-set patchfile=last_commit.patch
+set patchfile=commits.patch
 set devcodes=Dev_codes
 
 pushd %develop%
 
-git format-patch -%numcommits% --stdout > %patchfile%
-move %patchfile% ..\%devcodes%\ > nul
+git format-patch -%numcommits% --stdout > ..\%devcodes%\%patchfile%
 echo Patch is generated and copy to %devcodes%
 
 pushd ..\%devcodes%
