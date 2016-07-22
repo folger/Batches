@@ -14,8 +14,9 @@ echo Patch is generated and copy to %devcodes%
 
 pushd ..\%devcodes%
 
-echo Try to apply patch ...
+echo Try to fetch latest codes ...
 git pull origin master
+echo Try to apply patch ...
 git am -3 --keep-cr %patchfile% > nul
 del %patchfile%
 
