@@ -1,6 +1,8 @@
 @echo off
 
-set orgver=Origin 9.4D
+set orgver=Origin %1
+
+title Change %orgver% Languague
 
 choice /c EGJC /m "Language (%orgver%)"
 

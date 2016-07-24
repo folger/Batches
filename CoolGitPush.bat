@@ -1,5 +1,7 @@
 @echo off
 
+title Cool Git Push
+
 choice /c 12345 /m "How many commits?"
 
 set numcommits=%errorlevel%
