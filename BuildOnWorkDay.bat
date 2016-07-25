@@ -2,10 +2,10 @@
 
 for /f %%x in ("%date%") do set curdate=%%x
 
-set holiday=0
-if %curdate%==Sat set holiday=1
-if %curdate%==Sun set holiday=1
-if %holiday% == 1 (
+set weekend=0
+if %curdate%==Sat set weekend=1
+if %curdate%==Sun set weekend=1
+if %weekend% == 1 (
 	shutdown /s /t 30
 	exit /b
 )
