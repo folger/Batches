@@ -1,5 +1,7 @@
 @echo off
 
+title Pull Origin from Git and Build
+
 REM for /f %%x in ("%date%") do set curdate=%%x
 
 REM set holiday=0
