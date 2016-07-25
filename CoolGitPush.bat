@@ -24,10 +24,8 @@ del %patchfile%
 
 if %errorlevel%==0 (
 	echo Patch is successfully applied, now push to origin ...
-	if %errorlevel%==0 (
-		git push origin master
-		echo Done ~~~~
-	)
+	git push origin master
+	echo Done ~~~~
 )
 
 popd
