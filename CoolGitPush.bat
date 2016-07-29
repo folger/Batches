@@ -19,7 +19,7 @@ pushd ..\%devcodes%
 echo Try to fetch latest codes ...
 git pull origin master
 echo Try to apply patch ...
-git am -3 --keep-cr %patchfile% > nul
+git am -3 --keep-cr %patchfile%
 del %patchfile%
 
 if %errorlevel%==0 (
