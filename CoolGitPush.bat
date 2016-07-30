@@ -20,7 +20,7 @@ echo Patch is generated and copy to %devcodes%
 pushd ..\%devcodes%
 
 echo Try to fetch latest codes ...
-git pull origin master
+git pull origin master || goto :quit
 echo Try to apply patch ...
 git am -3 --keep-cr %patchfile% || goto :quit
 
