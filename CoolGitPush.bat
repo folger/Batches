@@ -22,14 +22,14 @@ pushd ..\%devcodes%
 echo Try to fetch latest codes ...
 git pull origin master
 echo Try to apply patch ...
-git am -3 --keep-cr %patchfile%
-del %patchfile%
+git am -3 --keep-cr %patchfile% || goto :quit
 
-if %errorlevel%==0 (
-	echo Patch is successfully applied, now push to origin ...
-	git push origin master
-	echo Done ~~~~
-)
+echo Patch is successfully applied, now push to origin ...
+git push origin master
+echo Done ~~~~
+
+:quit
+del %patchfile%
 
 popd
 popd

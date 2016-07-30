@@ -9,13 +9,7 @@ title %title1%
 pushd %develop%
 
 echo Pulling from git ...
-git pull --rebase
-
-if %errorlevel%==1 (
-	echo Error when git pull, quit~
-	pause
-	exit /b
-)
+git pull --rebase || exit /b 1
 
 popd
 
