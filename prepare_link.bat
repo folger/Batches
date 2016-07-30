@@ -1,4 +1,8 @@
 @echo off
+setlocal enableextensions
+set me=%~n0
+set parent=%~dp0
+
 set @folders=CustomTable ^
 Filters ^
 FitFunc ^
@@ -12,7 +16,7 @@ Startup ^
 "Origin Central"
 
 @echo on
-pushd %~dp0
+pushd %parent%
 for %%X in (%@folders%) do (
 	rmdir /s /q %%X
 	mklink /D %%X %develop%\Origin\%%X

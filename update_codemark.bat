@@ -1,5 +1,7 @@
 @echo off
-setlocal enabledelayedexpansion
+setlocal enableextensions enabledelayedexpansion
+set me=%~n0
+set parent=%~dp0
 
 pushd %develop%
 

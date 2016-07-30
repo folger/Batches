@@ -1,4 +1,7 @@
 @echo off
+setlocal enableextensions
+set me=%~n0
+set parent=%~dp0
 
 title Cool Git Push
 

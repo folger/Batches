@@ -1,4 +1,7 @@
 @echo off
+setlocal enableextensions
+set me=%~n0
+set parent=%~dp0
 
 REM set SOSHOME=%userprofile%\appdata\local\SourceGear\SourceOffSite
 

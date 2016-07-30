@@ -1,3 +1,8 @@
+@echo off
+setlocal enableextensions
+set me=%~n0
+set parent=%~dp0
+
 if exist od.rc copy od.rc "%develop%\Source\vc32\od"
 if exist oErrMsg.rc copy oErrMsg.rc "%develop%\Source\vc32\oErrMsg"
 if exist OKern96.rc copy OKern96.rc "%develop%\Source\vc32\OKern96"

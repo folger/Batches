@@ -1,4 +1,7 @@
 @echo off
+setlocal enableextensions
+set me=%~n0
+set parent=%~dp0
 
 for /f %%x in ("%date%") do set curdate=%%x
 
@@ -10,7 +13,7 @@ if %weekend% == 1 (
 	exit /b
 )
 
-pushd %~dp0
+pushd %parent%
 call pull_and_build.bat %1 %2
 popd
 
