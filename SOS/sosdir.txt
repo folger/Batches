@@ -1,7 +1,5 @@
 $/current/SUPPORT/_ORGVER_All/Localization,Origin\Localization,-recursive
-$/current/SUPPORT/_ORGVER_All/Origin,Origin,
-$/current/SUPPORT/_ORGVER_All/OriginPro,Origin,
-$/current/SUPPORT/_ORGVER_All/Origin/X-Functions,Origin\UFF\X-Functions,-recursive
-$/current/SUPPORT/_ORGVER_All/OriginPro/X-Functions,Origin\UFF\X-Functions,-recursive
+$/current/SUPPORT/_ORGVER_All/Origin,Origin,-recursive
+$/current/SUPPORT/_ORGVER_All/OriginPro,Origin,-recurisive
 $/OLocalize/ORGVER,Origin,
 $/current/SUPPORT/_ORGVER_All/ProgramData,C:\ProgramData,-recursive
