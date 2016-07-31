@@ -1,5 +1,5 @@
 $/current/SUPPORT/_ORGVER_All/Localization,Origin\Localization,-recursive
 $/current/SUPPORT/_ORGVER_All/Origin,Origin,-recursive
-$/current/SUPPORT/_ORGVER_All/OriginPro,Origin,-recurisive
+$/current/SUPPORT/_ORGVER_All/OriginPro,Origin,-recursive
 $/OLocalize/ORGVER,Origin,
 $/current/SUPPORT/_ORGVER_All/ProgramData,C:\ProgramData,-recursive
