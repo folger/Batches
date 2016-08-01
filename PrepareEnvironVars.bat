@@ -1,11 +1,30 @@
 @echo off
-setlocal enableextensions
+setlocal enableextensions enabledelayedexpansion
 set me=%~n0
 set parent=%~dp0
 
 set environment=HKCU\Environment
 
-reg add %environment% /v Develop /t REG_SZ /d "E:\Dev" /f
-reg add %environment% /v Diff /t REG_SZ /d "G:\Beyond Compare 4\BComp.exe" /f
-reg add %environment% /v Folscode /t REG_SZ /d "G:\folscode" /f
-reg add %environment% /v HOME /t REG_SZ /d "%USERPROFILE%" /f
+set entries="Develop,E:\Dev" ^
+			"Diff,G:\Beyond Compare 4\BComp.exe" ^
+			"Folscode,G:\folscode" ^
+			"HOME,%USERPROFILE%"
+
+for %%a in (%entries%) do (
+	for /f "tokens=1* delims=," %%b in (%%a) do (
+		echo %%b === %%c
+		reg add %environment% /v %%b /t REG_SZ /d "%%c" /f > nul
+	)
+)
+
+for /f "usebackq tokens=1,2*" %%a in (`reg query %environment% /v PATH`) do set currentpath=%%c
+
+set paths="G:\Git\cmd" ^
+		  "G:\Git\bin" ^
+		  "C:\Python33\Scripts"
+for %%a in (%paths%) do (
+	set pp=%%a
+	set currentpath=!pp:"=!;!currentpath!
+)
+echo PATH === %currentpath%
+reg add %environment% /v PATH /t REG_SZ /d "%currentpath%" /f > nul
