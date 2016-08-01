@@ -21,13 +21,19 @@ for /f "tokens=*" %%x in (%sosdir%) do (
 		set project=!project:ORGVER=%1!
 		set workdir=%%b
 		set workdir1=!workdir::=!
-		if !workdir!==!workdir1! set workdir=!develop!\%%b
+		set needorigin=0
+		if [!workdir!]==[] set needorigin=1
+		if !workdir!==!workdir1! set needorigin=1
+		if !needorigin!==1 set workdir=!develop!\Origin!workdir!
 		set options=%%c
 	)
 	call :tee !project! === !workdir! [!options!]
 	!sos! -command GetProject -server 98.118.55.12:8080 -name !user! -password !password! -alias vss ^
 	-project "!project!" -workdir "!workdir!" -verbose !options! >> !log!
 )
+
+call :tee Making all files writable
+attrib -r %develop%\Origin\*.* /s > nul
 
 call :tee End Time [%date% %time%]
 call :tee %marker%Done !!!%marker%
