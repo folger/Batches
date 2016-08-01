@@ -13,7 +13,9 @@ Localization ^
 Hints ^
 Templates ^
 Startup ^
-"Origin Central"
+PlotPopup ^
+Palettes ^
+Patterns
 
 @echo on
 pushd %parent%
