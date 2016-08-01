@@ -13,7 +13,7 @@ set marker=*********************
 del %log% /q /f 2>nul
 
 call :tee %marker%Getting From SOS%marker%
-call :tee Start Time [%date%%time%]
+call :tee Start Time [%date% %time%]
 
 for /f "tokens=*" %%x in (%sosdir%) do (
 	for /f "tokens=1-3 delims=," %%a in ("%%x") do (
@@ -29,11 +29,7 @@ for /f "tokens=*" %%x in (%sosdir%) do (
 	-project "!project!" -workdir "!workdir!" -verbose !options! >> !log!
 )
 
-set xfunc=!develop!\Origin\X-Functions
-xcopy /e /y %xfunc% !develop!\Origin\UFF\X-Functions\ > nul
-rmdir /s /q %xfunc% > nul
-
-call :tee End Time [%date%%time%]
+call :tee End Time [%date% %time%]
 call :tee %marker%Done !!!%marker%
 start notepad %log%
 pause
