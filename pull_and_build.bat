@@ -19,5 +19,3 @@ title Platform=%1 Configuration=%2
 
 call "%VS110COMNTOOLS%..\..\VC\vcvarsall.bat"
 msbuild  "%develop%\Source\vc32\orgmain\OriginAll.sln" /p:Configuration=%2 /p:Platform=%1 /m
-
-pause
