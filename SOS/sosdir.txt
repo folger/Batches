@@ -9,13 +9,13 @@ $/current/SUPPORT/_ORGVER_All/Origin/Patterns,\Patterns,-recursive
 $/current/SUPPORT/_ORGVER_All/Origin/PlotPopup,\PlotPopup,
 $/current/SUPPORT/_ORGVER_All/Origin/Templates,\Templates,-recursive
 $/current/SUPPORT/_ORGVER_All/Origin/Themes,\Themes,-recursive
+$/current/SUPPORT/_ORGVER_All/Origin/X-Functions,\UFF\X-Functions,-recursive
+$/current/SUPPORT/_ORGVER_All/OriginPro,,
 $/current/SUPPORT/_ORGVER_All/OriginPro/CustomTable,\CustomTable,
 $/current/SUPPORT/_ORGVER_All/OriginPro/FitFunc,\FitFunc,
 $/current/SUPPORT/_ORGVER_All/OriginPro/Hints,\Hints,
 $/current/SUPPORT/_ORGVER_All/OriginPro/Templates,\Templates,-recursive
 $/current/SUPPORT/_ORGVER_All/OriginPro/Themes,\Themes,-recursive
-$/current/SUPPORT/_ORGVER_All/OriginPro,,
-$/current/SUPPORT/_ORGVER_All/Origin/X-Functions,\UFF\X-Functions,-recursive
 $/current/SUPPORT/_ORGVER_All/OriginPro/X-Functions,\UFF\X-Functions,-recursive
 $/OLocalize/ORGVER,,
 $/current/SUPPORT/_ORGVER_All/ProgramData,C:\ProgramData,-recursive
