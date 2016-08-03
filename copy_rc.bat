@@ -3,12 +3,22 @@ setlocal enableextensions
 set me=%~n0
 set parent=%~dp0
 
-if exist od.rc copy od.rc "%develop%\Source\vc32\od"
-if exist oErrMsg.rc copy oErrMsg.rc "%develop%\Source\vc32\oErrMsg"
-if exist OKern96.rc copy OKern96.rc "%develop%\Source\vc32\OKern96"
-if exist Origin50.rc copy Origin50.rc "%develop%\Source\vc32\Origin50"
-if exist OUser.rc copy OUser.rc "%develop%\Source\vc32\OUser"
-if exist ODlg.rc copy ODlg.rc "%develop%\Source\DDK Tools\ODlg"
-if exist ODlg8.rc copy ODlg8.rc "%develop%\Source\DDK Tools\ODlg8"
-if exist okUtil.rc copy okUtil.rc "%develop%\Source\MFC\okUtil\okUtil.rc"
-if exist OIDE.rc copy OIDE.rc "%develop%\Source\MFC\oide\OIDE.rc"
+set entries="od.rc,Source\vc32\od" ^
+			"oErrMsg.rc,Source\vc32\oErrMsg" ^
+			"OKern96.rc,Source\vc32\OKern96" ^
+			"Origin50.rc,Source\vc32\Origin50" ^
+			"OUser.rc,Source\vc32\OUser" ^
+			"ODlg.rc,Source\DDK Tools\ODlg" ^
+			"ODlg8.rc,Source\DDK Tools\ODlg8" ^
+			"okUtil.rc,Source\MFC\okUtil\okUtil.rc" ^
+			"OIDE.rc,Source\MFC\oide\OIDE.rc"
+
+for %%a in (%entries%) do (
+	for /f "tokens=1* delims=," %%b in (%%a) do (
+		if exist %%b (
+			echo %%b === %%c 
+			copy %%b "%develop%\%%c" > nul
+		)
+	)
+)
+pause
