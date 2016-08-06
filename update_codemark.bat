@@ -8,13 +8,18 @@ pushd %develop%
 set newcodemarking=NewCodeMarking.txt
 set codemarking=CodeMarking.txt
 
-for /f "tokens=2" %%x in ("%date%") do set curdate=%%x
+for /f "tokens=1-2" %%x in ("%date%") do (
+	set b=%%x
+	set c=!b:/=!
+	if not !c!==!b! set curdate=%%x
+)
 
-set src=\\fs1\Builds\94\I\
-for /f "delims=" %%i in ('dir "%src%" /b /ad-h /t:c /od') do (
+for /f "delims=" %%i in ('git log --oneline -500') do (
 	set b=%%i
-	set c=!b:Ir94Sr=!
-	if not !c!==!b! set build=!b!
+	set c=!b:Ir9=!
+	if not !c!==!b! if [!build!]==[] (
+		for %%j in (!b!) do set build=%%j
+	)
 )
 
 for /f "tokens=*" %%x in (%codemarking%) do (
