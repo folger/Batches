@@ -17,10 +17,13 @@ for /f "tokens=1-2" %%x in ("%date%") do (
 for /f "delims=" %%i in ('git log --oneline -500') do (
 	set b=%%i
 	set c=!b:Ir9=!
-	if not !c!==!b! if [!build!]==[] (
+	if not !c!==!b! (
 		for %%j in (!b!) do set build=%%j
+		goto :update
 	)
 )
+
+:update
 
 for /f "tokens=*" %%x in (%codemarking%) do (
 	for /f "tokens=1-7" %%a in ("%%x") do (
