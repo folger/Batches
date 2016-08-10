@@ -20,7 +20,7 @@ for %%a in (%repos%) do (
 	)
 	echo !marker! !repo:"=! !marker!
 	pushd !repo!
-	git status --short
+	git status --short --branch
 	git pull
 	popd
 )
