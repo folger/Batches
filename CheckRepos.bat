@@ -5,8 +5,10 @@ set parent=%~dp0
 
 title Check Git Repos
 
-choice /c SP /m "Show Status(S) or Pull(P)"
+:check
+choice /c SPQ /m "Show Status(S), Pull(P) or Quit(Q)"
 set opt=%errorlevel%
+if %opt%==3 exit /b
 
 set repos="%home%\vimfiles"^
 		Batches^
@@ -30,4 +32,4 @@ for %%a in (%repos%) do (
 	popd
 )
 echo %marker% Done %marker%
-pause
+goto :check
