@@ -5,22 +5,40 @@ set parent=%~dp0
 
 title Compile OriginC
 
-set compileogs=compile.ogs
-set ocw=dev.ocw
-
-echo.>%ocw%
-for /f "tokens=*" %%a in (%develop%\Origin\dev80.ocw) do (
-	set b=%%a
-	echo !b:D:\C94\Origin\=%parent%!>>dev.ocw
+for /f "delims=" %%a in ('dir /b Origin*.exe') do (
+	set origin=%%a
+	goto :found_origin
 )
+:found_origin
+if [%origin%]==[] (
+	echo Origin executable cannot be found !!!
+	exit /b 1
+)
+
+echo Found %origin% ...
+
+set compileogs=%temp%\compile.ogs
+set ocw=%temp%\dev.ocw
+
+pushd OriginC
+echo [Workspace]>%ocw%
+set i=0
+for /f "delims=" %%a in ('dir /s /b *.c*') do (
+	set /a i+=1
+	echo File!i!=%%a>>%ocw%
+)
+echo FileCount=%i%>>%ocw%
+popd
+echo Generated %ocw% ...
 
 echo.>%compileogs%
 echo @RBA=1;>>%compileogs%
-echo string strDev = system.path.program$ + "dev.ocw";>>%compileogs%
-echo run.loadoc(%%(strDev$), 0);>>%compileogs%
+echo run.loadoc("%ocw%", 0);>>%compileogs%
 echo ty -b Done;>>%compileogs%
+echo Generated %compileogs% ...
 
-origin94_64 -rs run.section(compile)
+echo Start %origin% to compile ...
+%origin% -rs run.section(%compileogs%)
 
 del %compileogs% 2>nul
 del %ocw% 2>nul
