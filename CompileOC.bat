@@ -5,13 +5,13 @@ set parent=%~dp0
 
 title Compile OriginC
 
-for /f "delims=" %%a in ('dir /b Origin*.exe') do (
+for /f "delims=" %%a in ('dir /b Origin*.exe 2^>nul') do (
 	set origin=%%a
 	goto :found_origin
 )
 :found_origin
 if [%origin%]==[] (
-	echo Origin executable cannot be found !!!
+	echo Origin executable cannot be found^^!^^!^^!
 	exit /b 1
 )
 
