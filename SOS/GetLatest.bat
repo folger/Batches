@@ -12,7 +12,7 @@ set log="%temp%\soslog.txt"
 set marker=*********************
 
 call :tee %marker%Getting From SOS%marker%
-call :tee Start [%date% %time%]
+call :tee Start [%date%%time%]
 
 for /f "tokens=*" %%x in (sosdir.txt) do (
 	for /f "tokens=1-3 delims=," %%a in ("%%x") do (
@@ -34,7 +34,7 @@ for /f "tokens=*" %%x in (sosdir.txt) do (
 call :tee Making all files writable
 attrib -r %develop%\Origin\*.* /s > nul
 
-call :tee End [%date% %time%]
+call :tee End [%date%%time%]
 call :tee %marker%Done !!!%marker%
 start notepad %log%
 pause
