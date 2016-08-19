@@ -3,7 +3,7 @@ setlocal enableextensions enabledelayedexpansion
 set me=%~n0
 set parent=%~dp0
 
-set path=C:\Program Files\7-Zip;%path%
+set path=%ProgramFiles%\7-Zip;%path%
 set src=%1
 set des=\\fs1\Builds\%2\I\
 set zipdes=\\fs1\Released\ZipBuilds\%2\
