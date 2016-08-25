@@ -3,8 +3,7 @@ setlocal enableextensions
 set me=%~n0
 set parent=%~dp0
 
-set title1=Pull Origin from Git and Build
-title %title1%
+title Pull Origin from Git and Build
 
 pushd %develop%
 
