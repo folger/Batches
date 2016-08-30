@@ -16,8 +16,17 @@ folstools ^
 clipbrdmngr ^
 decodecaptchar ^
 htsecdata ^
-pk10
+pk10 ^
+djangobook
 
 for %%x in (%repos%) do (
-	git clone git@git.coding.net:folger6/%%%x.git --recursive
+	echo === %%x ===
+	if exist %%x (
+		pushd %%x
+		git pull --recurse-submodules=yes
+		popd
+	) else (
+		git clone git@git.coding.net:folger6/%%%x.git --recursive
+	)
 )
+pause
