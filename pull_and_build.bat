@@ -8,11 +8,15 @@ title Pull Origin from Git and Build
 pushd %develop%
 
 echo Pulling from git ...
+
+
+
 for /f %%a in ('git status --short') do set gitstatus=%%a
 if not [%gitstatus%]==[] (
 	echo Repo has unstaged changes, will be stashed
 	git stash
 )
+git gc
 :startpull
 git pull --rebase
 set waitsec=60
