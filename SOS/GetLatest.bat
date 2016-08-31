@@ -3,6 +3,8 @@ setlocal enableextensions enabledelayedexpansion
 set me=%~n0
 set parent=%~dp0
 
+title Get Files from SOS
+
 set server=98.118.55.12:8080
 set alias=vss
 set user=folger

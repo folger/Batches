@@ -8,6 +8,9 @@ set src=%1
 set des=\\fs1\Builds\%2\I\
 set zipdes=\\fs1\Released\ZipBuilds\%2\
 set build_files=build_files.txt
+
+title Copy build from %src% to %des%
+
 for /f "delims=" %%i in ('dir "%src%" /b /ad-h /t:c /od') do (
 	set b=%%i
 	set c=!b:Ir%2Sr=!
