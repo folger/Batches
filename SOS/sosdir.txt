@@ -1,3 +1,4 @@
+$/current/SUPPORT/_ORGVER_All/ProgramData,C:\ProgramData,-recursive
 $/current/SUPPORT/_ORGVER_All/Localization,\Localization,-recursive
 $/current/SUPPORT/_ORGVER_All/Origin,,
 $/current/SUPPORT/_ORGVER_All/Origin/CustomTable,\CustomTable,
@@ -18,4 +19,3 @@ $/current/SUPPORT/_ORGVER_All/OriginPro/Templates,\Templates,-recursive
 $/current/SUPPORT/_ORGVER_All/OriginPro/Themes,\Themes,-recursive
 $/current/SUPPORT/_ORGVER_All/OriginPro/X-Functions,\UFF\X-Functions,-recursive
 $/OLocalize/ORGVER,,
-$/current/SUPPORT/_ORGVER_All/ProgramData,C:\ProgramData,-recursive
