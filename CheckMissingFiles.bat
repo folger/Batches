@@ -3,6 +3,8 @@ setlocal enableextensions enabledelayedexpansion
 set me=%~n0
 set parent=%~dp0
 
+title Check missing files from vcxproj
+
 for /f "delims=" %%a in ('dir /s /b *.vcxproj') do (
 	set filedump=0
 	pushd %%~dpa
