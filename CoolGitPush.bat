@@ -19,6 +19,7 @@ echo Patch is generated and copy to %devcodes%
 
 pushd ..\%devcodes%
 
+git gc
 echo Try to fetch latest codes ...
 git pull origin master || goto :quit
 echo Try to apply patch ...
