@@ -23,7 +23,8 @@ for %%x in (%repos%) do (
 	echo === %%x ===
 	if exist %%x (
 		pushd %%x
-		git pull --recurse-submodules=yes
+		git pull
+		git submodule update --init
 		popd
 	) else (
 		git clone git@git.coding.net:folger6/%%%x.git --recursive
