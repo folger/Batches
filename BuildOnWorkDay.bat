@@ -17,10 +17,10 @@ if %weekend%==0 (
 set /a count=%3
 if not [%3]==[] (
 :showcount
-	title Windows will shutdown in %count% seconds
+	title Windows will shutdown in %count% seconds, Ctrl+C to cancel
 	timeout /t 1 > nul
 	set /a count=%count%-1
 	if %count% gtr 0 goto :showcount
 )
 
-shutdown /s
+shutdown /s /f
