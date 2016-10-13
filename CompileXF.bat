@@ -19,4 +19,13 @@ echo Found %origin% ...
 
 echo Start %origin% to compile ...
 %origin% -rs list xc u;exit;
-start notepad C:\c92\xfocb.txt
+
+echo ==========================================
+for /f "delims=" %%a in (C:\c92\xfocb.txt) do (
+	set result=%%a
+	set result1=!result:failed=!
+	if not [!result!]==[!result1!] echo %%a
+)
+echo Done~~~
+
+pause
