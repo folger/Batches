@@ -22,11 +22,9 @@ echo Found %origin% ...
 echo Start %origin% to compile ...
 %origin% -rs list xc u;exit;
 
-echo ==========================================
-for /f "delims=" %%a in (C:\c%version%\xfocb.txt) do (
-	set result=%%a
-	set result1=!result:failed=!
-	if not [!result!]==[!result1!] echo %%a
+echo.
+for /f "delims=" %%a in ('find "failed" C:\c%version%\xfocb.txt') do (
+	echo %%a
 )
 echo Done~~~
 
