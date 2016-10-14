@@ -8,22 +8,6 @@ set password=%2
 set version=%3
 set format=%4
 
-for /f "delims=" %%i in ('dir "\\fs1\Builds\%version%\I" /b /ad-h /t:c /od ^| find "Ir"') do (
-	set latest=%%i
-)
-
-if [%latest%]==[] (
-	echo No Build Found
-	pause
-	exit /b
-)
-
-set latest=%latest:_H=%
-for %%i in (1 2 3 4) do (
-	set latest=!latest:.%%i=!
-	set latest=!latest:_beta%%i=!
-)
-
 set modules= Origin%version%^
             ok9^
             okUtil9^
@@ -103,6 +87,20 @@ set modules= Origin%version%^
             OImage^
             ORserve9^
 			CrashRpt1402
+
+for /f "delims=" %%i in ('dir "\\fs1\Builds\%version%\I" /b /ad-h /t:c /od ^| find "Ir"') do set latest=%%i
+
+if [%latest%]==[] (
+	echo No Build Found
+	pause
+	exit /b
+)
+
+set latest=%latest:_H=%
+for %%i in (1 2 3 4) do (
+	set latest=!latest:.%%i=!
+	set latest=!latest:_beta%%i=!
+)
 
 set targetpath=\\fs1\dev\%format%s\%latest%
 
