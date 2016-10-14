@@ -74,7 +74,6 @@ set modules= Origin%version%^
             OLTmsg9^
             omail9^
             omat9^
-            ONAG_ex9^
             ONAG9^
             ONLSF9^
             OODBC9^
@@ -105,11 +104,12 @@ set modules= Origin%version%^
             OImgProc^
             OImage^
             libgif^
-            ORserve9
+            ORserve9^
+			CrashRpt1402
 
 set targetpath=\\fs1\dev\%format%s\%latest%
 
-mkdir %targetpath% 2>nul
+md %targetpath% 2>nul
 pushd %targetpath%
 
 for %%b in ($, _64) do (
