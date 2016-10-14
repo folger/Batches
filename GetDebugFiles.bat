@@ -103,7 +103,6 @@ set modules= Origin%version%^
             nlsfWiz9^
             OImgProc^
             OImage^
-            libgif^
             ORserve9^
 			CrashRpt1402
 
