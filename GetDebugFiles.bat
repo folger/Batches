@@ -112,7 +112,7 @@ set targetpath=\\fs1\dev\%format%s\%latest%
 mkdir %targetpath% 2>nul
 pushd %targetpath%
 
-for %%b in (_64) do (
+for %%b in ($, _64) do (
 	for %%a in (%modules%) do (
 		set file=%%a%%b.!format!
 		set file=!file:$=!
