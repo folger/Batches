@@ -8,10 +8,8 @@ set password=%2
 set version=%3
 set format=%4
 
-for /f "delims=" %%i in ('dir "\\fs1\Builds\%version%\I" /b /ad-h /t:c /od') do (
-	set b=%%i
-	set c=!b:Ir=!
-	if not !c!==!b! set latest=!b!
+for /f "delims=" %%i in ('dir "\\fs1\Builds\%version%\I" /b /ad-h /t:c /od ^| find "Ir"') do (
+	set latest=%%i
 )
 
 if [%latest%]==[] (
