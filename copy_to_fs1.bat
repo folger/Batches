@@ -11,11 +11,8 @@ set build_files=%temp%\build_files.txt
 
 title Copy build from %src% to %des%
 
-for /f "delims=" %%i in ('dir "%src%" /b /ad-h /t:c /od') do (
-	set b=%%i
-	set c=!b:Ir%2Sr=!
-	if not x!c!==x!b! set a=!b!
-)
+for /f "delims=" %%i in ('dir "%src%" /b /ad-h /t:c /od ^| find "Ir%2Sr"') do set a=%%i
+
 if [%a%]==[] (
 	echo No build found !!!
 ) else (
