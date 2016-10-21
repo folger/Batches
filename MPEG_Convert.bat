@@ -6,8 +6,9 @@ set parent=%~dp0
 set path=J:\ffmpeg\bin;%path%
 
 for %%a in (*.avi) do (
-	if not exist %%~na.mp4 (
+	set des=%%~na.mp4
+	if not exist !des! (
 		title %%a
-		ffmpeg -i %%a -y %%~na.mp4
+		ffmpeg -i %%a -y !des!
 	)
 )
