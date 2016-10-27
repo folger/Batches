@@ -15,7 +15,8 @@ Templates ^
 Startup ^
 PlotPopup ^
 Palettes ^
-Patterns
+Patterns ^
+LTF
 
 @echo on
 pushd %parent%
