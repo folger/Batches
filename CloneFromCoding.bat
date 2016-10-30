@@ -17,7 +17,8 @@ clipbrdmngr ^
 decodecaptchar ^
 htsecdata ^
 pk10 ^
-djangobook
+djangobook ^
+folsnet
 
 for %%x in (%repos%) do (
 	echo === %%x ===
