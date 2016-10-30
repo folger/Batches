@@ -10,7 +10,7 @@ set alias=vss
 set user=folger
 set password=""
 set sos="%ProgramFiles(x86)%\SourceOffSite\soscmd.exe"
-set log="%temp%\soslog.txt"
+REM set log="%temp%\soslog.txt"
 set marker=*********************
 
 call :tee %marker%Getting From SOS%marker%
@@ -30,7 +30,7 @@ for /f "tokens=*" %%x in (sosdir.txt) do (
 	)
 	call :tee !project! === !workdir! [!options!]
 	!sos! -command GetProject -server !server! -name !user! -password !password! -alias !alias! ^
-	-project "!project!" -workdir "!workdir!" -verbose !options! >> !log!
+	-project "!project!" -workdir "!workdir!" -verbose !options!
 )
 
 call :tee Making all files writable
@@ -38,12 +38,12 @@ attrib -r %develop%\Origin\*.* /s > nul
 
 call :tee End [%date%%time%]
 call :tee %marker%Done !!!%marker%
-start notepad %log%
+REM start notepad %log%
 pause
 exit /b 0
 
 ::function to write to a log file and write to stdout
 :tee
-echo %*>> %log%
+REM echo %*>> %log%
 echo %*
 exit /b 0
