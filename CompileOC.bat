@@ -5,7 +5,7 @@ set parent=%~dp0
 
 title Compile OriginC
 
-for /f "delims=" %%a in ('dir /b Origin*.exe 2^>nul') do (
+for /f "delims=" %%a in ('dir /b Origin*_64.exe 2^>nul') do (
 	set origin=%%a
 	goto :found_origin
 )
