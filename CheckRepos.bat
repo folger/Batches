@@ -16,7 +16,8 @@ set repos="%home%\vimfiles"^
 		Python^
 		pk10^
 		djangobook^
-		JIRA
+		JIRA^
+		folsnet
 
 set marker=************************
 for %%a in (%repos%) do (
