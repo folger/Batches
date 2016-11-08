@@ -97,7 +97,7 @@ if [%latest%]==[] (
 )
 
 set latest=%latest:_H=%
-for %%i in (1 2 3 4) do (
+for %%i in (0 1 2 3 4) do (
 	set latest=!latest:.%%i=!
 	set latest=!latest:_beta%%i=!
 )
@@ -107,7 +107,7 @@ set targetpath=\\fs1\dev\%format%s\%latest%
 md %targetpath% 2>nul
 pushd %targetpath%
 
-for %%b in ($, _64) do (
+for %%b in (_64) do (
 	for %%a in (%modules%) do (
 		set file=%%a%%b.!format!
 		set file=!file:$=!
