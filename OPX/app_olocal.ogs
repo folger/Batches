@@ -1,0 +1,32 @@
+[main]
+	ty "Compiling %1 ...";
+	string strAppPath = %@a%1;
+	
+	def olocal_compile
+	{
+		run -xf %(str.GetFileName(1)$) -hn;
+	}
+	function loadfiles()
+	{
+		int nn = fname.GetNumTokens(LF);
+		for (int ii=1; ii<=nn; ii++)
+		{
+			string str = fname.GetToken(ii, LF)$;
+			ty str$;
+			olocal_compile;
+		}
+	}		
+	findfiles strAppPath$ "*.oxf";
+	loadfiles();
+
+	def olocal_compile
+	{
+		run.loadoc(%(str$), 16);
+	}	
+	findfiles strAppPath$ "*.c";
+	loadfiles();
+	findfiles strAppPath$ "*.cpp";
+	loadfiles();
+
+	ty;
+	ty;
