@@ -19,6 +19,7 @@ echo Found %origin% ...
 
 set compileogs=%temp%\compile.ogs
 set ocw=%temp%\dev.ocw
+set output=%temp%\oc_error.txt
 
 pushd OriginC
 echo [Workspace]>%ocw%
@@ -32,13 +33,19 @@ popd
 echo Generated %ocw% ...
 
 echo.>%compileogs%
+echo win -n n;>>%compileogs%
+echo type.redirection=2;>>%compileogs%
+echo type.notes$=notes;>>%compileogs%
 echo @RBA=1;>>%compileogs%
 echo run.loadoc("%ocw%", 0);>>%compileogs%
-echo ty -b Done;>>%compileogs%
+echo save -n notes %output%;>>%compileogs%
+echo ;doc -ss;exit;>>%compileogs%
 echo Generated %compileogs% ...
 
 echo Start %origin% to compile ...
 %origin% -rs run.section(%compileogs%)
+
+start notepad %output%
 
 del %compileogs% 2>nul
 del %ocw% 2>nul
