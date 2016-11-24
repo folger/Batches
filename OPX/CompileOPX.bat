@@ -24,8 +24,25 @@ set compileogs=%temp%\compile.ogs
 echo.>%compileogs%
 echo Installing Apps ...
 rd /s /q %apps% 2>nul
+set installlater=
 for /r %opxpath% %%a in (*.opx) do (
-	echo run -opxi %%a;>>%compileogs%
+	set later=0
+	set b=%%a
+	set c=!b:Import Chem Data=!
+	if not !b!==!c! set later=1
+	if !later!==1 (
+		if not [!installlater!]==[] set installlater=!installlater! 
+		set installlater=!installlater!"!b!"
+	) else (
+		echo run -opxi !b!;>>%compileogs%
+	)
+)
+if not [%installlater%]==[] (
+	for %%a in (%installlater%) do (
+		set b=%%a
+		set c=!b:"=!
+		echo run -opxi !c!;>>%compileogs%
+	)
 )
 echo ;doc -ss;exit;>>%compileogs%
 %origin% -rs run.section(%compileogs%)
