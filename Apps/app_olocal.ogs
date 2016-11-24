@@ -27,6 +27,8 @@
 	loadfiles();
 	findfiles strAppPath$ "*.cpp";
 	loadfiles();
+	findfiles strAppPath$ "*.ocz";
+	loadfiles();
 
 	ty;
 	ty;
