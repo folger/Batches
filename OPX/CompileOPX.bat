@@ -3,7 +3,8 @@ setlocal enableextensions enabledelayedexpansion
 set me=%~n0
 set parent=%~dp0
 
-set opxpath=G:\Apps
+set apppath=%1
+set apppath=%apppath:"=%
 set apps=%localappdata%\Originlab\Apps
 
 title Checking Apps ...
@@ -25,7 +26,7 @@ echo.>%compileogs%
 echo Installing Apps ...
 rd /s /q %apps% 2>nul
 set installlater=
-for /r %opxpath% %%a in (*.opx) do (
+for /r %apppath% %%a in (*.opx) do (
 	set later=0
 	set b=%%a
 	set c=!b:Import Chem Data=!
