@@ -20,6 +20,8 @@ if [%origin%]==[] (
 )
 echo Found %origin% ...
 
+set version=%origin:~6,2%
+
 set compileogs=%temp%\compile.ogs
 
 echo.>%compileogs%
@@ -47,6 +49,8 @@ if not [%installlater%]==[] (
 )
 echo ;doc -ss;exit;>>%compileogs%
 %origin% -rs run.section(%compileogs%)
+
+rd /s /q %localappdata%\Originlab\%version%\TMP\OCTemp 2>nul
 
 set app_results=%temp%\app_results.txt
 set temp_result=%temp%\temp_result.txt
