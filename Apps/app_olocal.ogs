@@ -12,7 +12,7 @@
 		for (int ii=1; ii<=nn; ii++)
 		{
 			string str = fname.GetToken(ii, LF)$;
-			ty str$;
+			ty -v str$;
 			olocal_compile;
 		}
 	}		
