@@ -9,11 +9,7 @@ set apps=%localappdata%\Originlab\Apps
 
 title Checking Apps ...
 
-for /f "delims=" %%a in ('dir /b Origin*_64.exe 2^>nul') do (
-	set origin=%%a
-	goto :found_origin
-)
-:found_origin
+for /f "delims=" %%i in ('dir Origin*.exe /b /t:w /od') do set origin=%%i
 if [%origin%]==[] (
 	echo Origin executable cannot be found^^!^^!^^!
 	exit /b 1

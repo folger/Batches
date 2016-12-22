@@ -3,10 +3,7 @@ setlocal enableextensions enabledelayedexpansion
 set me=%~n0
 set parent=%~dp0
 
-for /f "delims=" %%a in ('dir /b Origin*_64.exe 2^>nul') do (
-	set origin=%%a
-	goto :found_origin
-)
+for /f "delims=" %%i in ('dir Origin*.exe /b /t:w /od') do set origin=%%i
 :found_origin
 if [%origin%]==[] (
 	echo Origin executable cannot be found^^!^^!^^!
