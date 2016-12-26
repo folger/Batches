@@ -20,9 +20,7 @@ echo Start %origin% to compile ...
 %origin% -rs list xc u;exit;
 
 echo.
-for /f "delims=" %%a in ('find "failed" C:\c%version%\xfocb.txt') do (
-	echo %%a
-)
+for /f "delims=" %%a in ('findstr "\<failed\>" C:\c%version%\xfocb.txt') do echo %%a
 echo Done~~~
 
 pause
