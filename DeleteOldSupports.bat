@@ -8,7 +8,7 @@ title Delete old support files ...
 set src=\\fs1\dev\SupportFiles
 
 set last=
-for /f "delims=" %%i in ('dir "%src%" /b /ad-h /t:c /od ^| find "Ir"') do (
+for /f "delims=" %%i in ('dir "%src%\?r9*" /b /ad-h /t:c /od') do (
 	if not [!last!]==[] (
 		echo Deleting !last!...
 		rd /s /q !src!\!last!
