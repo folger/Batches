@@ -10,6 +10,8 @@ choice /c SPQ /m "Show Status(S), Pull(P) or Quit(Q)"
 set opt=%errorlevel%
 if %opt%==3 exit /b
 
+cls
+
 set repos="%home%\vimfiles"^
 		Batches^
 		folstools^
