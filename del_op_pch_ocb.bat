@@ -10,7 +10,9 @@ if [%origin%]==[] (
 	exit /b 1
 )
 
-set version=%origin:~6,2%
+set version=%origin:Origin=%
+set version=%version:.exe=%
+set version=%version:_64=%
 
 title Deleting %version% compile temp files ...
 
