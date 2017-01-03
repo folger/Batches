@@ -1,4 +1,5 @@
 import os
+import json
 import webbrowser
 import traceback
 
@@ -6,14 +7,18 @@ import requests
 import bs4
 
 
-r = requests.get('https://technet.microsoft.com/en-us/library/cc772390(v=ws.11).aspx')
-soup = bs4.BeautifulSoup(r.text, 'html.parser')
-
-
 cmd_links = {}
-for li in soup(class_='unordered')[0]:
-    a = li.p.a
-    cmd_links[a.text.lower()] = a['href']
+try:
+    with open('cmdlinks.json') as f:
+        cmd_links = json.load(f)
+except FileNotFoundError:
+    r = requests.get('https://technet.microsoft.com/en-us/library/cc772390(v=ws.11).aspx')
+    soup = bs4.BeautifulSoup(r.text, 'html.parser')
+    for li in soup(class_='unordered')[0]:
+        a = li.p.a
+        cmd_links[a.text.lower()] = a['href']
+    with open('cmdlinks.json', 'w') as f:
+        json.dump(cmd_links, f)
 
 os.system('title Command-Line Reference')
 while True:
