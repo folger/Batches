@@ -3,10 +3,10 @@ setlocal enableextensions enabledelayedexpansion
 set me=%~n0
 set parent=%~dp0
 
-set path=%ProgramFiles%\7-Zip;%path%
+REM set path=%ProgramFiles%\7-Zip;%path%
 set src=%1
 set des=\\fs1\Builds\%2\I\
-set zipdes=\\fs1\Released\ZipBuilds\%2\
+set zipdes=\\fs1\Released\ZipBuilds\%2
 set build_files=%temp%\build_files.txt
 
 title Copy build from %src% to %des%
@@ -22,14 +22,15 @@ if [%a%]==[] (
 		echo Copying %a% to %des%
 		xcopy "%src%%a%" "%des%%a%" /s /i /y > nul
 	)
-	if exist %zipdes%%a%.zip (
+	if exist %zipdes%\%a%.zip (
 		echo %a%.zip exists on %zipdes% !!!
 	) else (
 		echo Zipping %a% to %zipdes%
-		if exist %build_files% del %build_files%
-		for %%i in (%src%%a%\*) do echo %%i >> %build_files%
-		7z a -tzip "%zipdes%%a%.zip" @%build_files% > nul
-		del %build_files%
+		REM if exist %build_files% del %build_files%
+		REM for %%i in (%src%%a%\*) do echo %%i >> %build_files%
+		REM 7z a -tzip "%zipdes%\%a%.zip" @%build_files% > nul
+		REM del %build_files%
+		powershell -executionpolicy bypass -File ps1\zipfiles.ps1 "%src:"=%%a%" "%zipdes%"
 	)
 )
 pause
