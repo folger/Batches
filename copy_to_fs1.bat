@@ -30,7 +30,7 @@ if [%a%]==[] (
 		REM for %%i in (%src%%a%\*) do echo %%i >> %build_files%
 		REM 7z a -tzip "%zipdes%\%a%.zip" @%build_files% > nul
 		REM del %build_files%
-		powershell -executionpolicy bypass -File ps1\zipfiles.ps1 "%src:"=%%a%" "%zipdes%"
+		powershell -executionpolicy bypass -File ps1\Zip-Files.ps1 "%src:"=%%a%" "%zipdes%"
 	)
 )
 pause
