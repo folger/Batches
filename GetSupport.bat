@@ -13,5 +13,5 @@ set xfs=X-Functions
 xcopy %xfs%\*.oxf UFF\%xfs% /s /y /i
 rmdir %xfs% /s /q
 
-pushd %parent%
+popd
 call %folscode%\Batches\copy_support.bat
