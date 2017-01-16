@@ -5,7 +5,7 @@ set parent=%~dp0
 
 set devorigin=
 
-pushd %develop%\Origin
+pushd "%1\Origin"
 
 call fs1_GetSupport.bat NoPause
 

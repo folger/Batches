@@ -17,7 +17,7 @@ $triggers = @((New-ScheduledTaskTrigger -Weekly -DaysOfWeek Monday -At 1pm),
 $actions = @((New-ScheduledTaskAction -Execute ($Env:folscode + '\Batches\DeleteOldSupports.bat')),
             (New-ScheduledTaskAction -Execute ($Env:folscode + '\Batches\GetDebugFiles.bat') -Argument 'buildcopy GetOriginRelease15 94 pdb'),
             (New-ScheduledTaskAction -Execute ($Env:folscode + '\Batches\copy_to_fs1.bat') -Argument '"\\poly\Dropbox\Builds-Origin\94\" 94'),
-            (New-ScheduledTaskAction -Execute ($Env:folscode + '\Batches\GetSupport.bat') -WorkingDirectory 'G:\F_C_VC32'),
+            (New-ScheduledTaskAction -Execute ($Env:folscode + '\Batches\GetSupport.bat') -Argument $Env:develop -WorkingDirectory 'G:\F_C_VC32'),
             (New-ScheduledTaskAction -Execute ($Env:folscode + '\Batches\BuildOnWorkDay.bat') -Argument 'Win32 Debug 1800')
             )
 
