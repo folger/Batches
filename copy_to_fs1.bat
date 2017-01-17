@@ -6,7 +6,7 @@ set parent=%~dp0
 REM set path=%ProgramFiles%\7-Zip;%path%
 set src=%1
 set des=\\fs1\Builds\%2\I\
-set zipdes=\\fs1\Released\ZipBuilds\%2
+set zipdes=\\fs1\eSATADisk1\Builds\Zip Builds\%2
 set build_files=%temp%\build_files.txt
 
 title Copy build from %src% to %des%
@@ -22,7 +22,7 @@ if [%a%]==[] (
 		echo Copying %a% to %des%
 		xcopy "%src%%a%" "%des%%a%" /s /i /y > nul
 	)
-	if exist %zipdes%\%a%.zip (
+	if exist "%zipdes%\%a%.zip" (
 		echo %a%.zip exists on %zipdes% !!!
 	) else (
 		echo Zipping %a% to %zipdes%
