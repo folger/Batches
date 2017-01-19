@@ -1,5 +1,5 @@
-Get-ChildItem *.h,*.c,*.cpp -Recurse | Foreach-Object {
-	$s = Get-Content $_
-	$s | Out-File -Encoding UTF8 $_
+Get-ChildItem -Path . -Include *.h,*.c,*.cpp -Recurse | Foreach-Object -Process {
+	$s = Get-Content -Path $_
+	$s | Out-File -Encoding UTF8 -FilePath $_
 	break
 }

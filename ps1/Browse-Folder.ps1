@@ -10,7 +10,7 @@ if ($PSVersionTable.PSVersion.Major -gt 2) {
 	}
 }
 else {
-	$app = new-object -com Shell.Application
+	$app = New-Object -com Shell.Application
 	$folder = $app.BrowseForFolder(0, $title, 0, "")
 	$folder.Self.Path
 }
