@@ -1,2 +1,2 @@
-param($p1, $p2)
-Compress-Archive -Path ($p1 + '\*.*') -DestinationPath ($p2 + '\' + (Split-Path $p1 -Leaf) + '.zip')
+param($source, $target)
+Compress-Archive -Path "$source\*.*" -DestinationPath "$target\$(Split-Path $source -Leaf).zip"
