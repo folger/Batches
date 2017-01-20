@@ -10,10 +10,10 @@ param (
   [string]$BuildBat
 )
 
+$Host.ui.RawUI.WindowTitle = "Build Release on '$ComputerName'"
+
 "Conneting to $ComputerName ..."
 $Session = New-PSSession -ComputerName $ComputerName -Credential $Credential
-
-$Host.ui.RawUI.WindowTitle = "Build Release on '$ComputerName'"
 
 $ValidVersion = @('94', '95')
 $Version = '94'
@@ -35,4 +35,3 @@ while ($True) {
 }
 
 'Quiting ...'
-Remove-PSSession $Session
