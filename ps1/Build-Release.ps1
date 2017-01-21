@@ -1,37 +1,29 @@
-﻿[CmdletBinding()]
-param (
-  [Parameter(Mandatory=$True)]
-  [string]$ComputerName,
+﻿$Json = (Get-Content "$((Get-Item $MyInvocation.MyCommand.Name).BaseName).json") -Join "`n" | ConvertFrom-Json
 
-  [Parameter(Mandatory=$True)]
-  [string]$Credential,
+$ComputerName = $Json.ComputerName
+$Credential = $Json.Credential
+$BuildBat = $Json.BuildBat
+$Versions = $Json.Versions
 
-  [Parameter(Mandatory=$True)]
-  [string]$BuildBat
-)
+$ValidVersion = $Versions.PSObject.Properties | Select-Object -ExpandProperty Name
 
 $Host.ui.RawUI.WindowTitle = "Build Release on '$ComputerName'"
 
-"Conneting to $ComputerName ..."
+"Conneting to $ComputerName as $Credential ..."
 $Session = New-PSSession -ComputerName $ComputerName -Credential $Credential
 
-$ValidVersion = @('94', '95')
-$Version = '94'
-$DevFolders = @{'94' = 'E:\Dev'; '95' = 'E:\Dev_95'}
-$Configs = @{'94' = 'Release'; '95' = 'UnicodeRelease'}
-
+$Version = $Versions."$($ValidVersion[0])"
 while ($True) {
-  $DevFolder = $DevFolders[$Version]
+  $DevFolder = $Version.Path
   $Cmd = Read-Host -Prompt "[$ComputerName]($DevFolder)"
   if ($Cmd.Length -eq 0) {break}
   if ($Cmd -in $ValidVersion) {
-    $Version = $Cmd
+    $Version = $Versions."$Cmd"
     continue
   }
   if ($Cmd -like 'build *') {
-    $Cmd = "$BuildBat $DevFolder $($Configs[$Version]) $($Cmd.Replace('build ', ''))"
+    $Cmd = "$BuildBat $DevFolder $($Version.Config) $($Cmd.Replace('build ', ''))"
   }
   Invoke-Command -Session $Session -ScriptBlock ([ScriptBlock]::Create("cd $DevFolder;$Cmd"))
 }
-
 'Quiting ...'

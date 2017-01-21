@@ -1,0 +1,15 @@
+{
+	"ComputerName": "oc2",
+	"Credential": "ocbuild",
+	"BuildBat": "E:\\BatchBuild\\build.bat",
+	"Versions": {
+		"94": {
+			"Path": "E:\\Dev",
+			"Config": "Release"
+		},
+		"95": {
+			"Path": "E:\\Dev_95",
+			"Config": "UnicodeRelease"
+		}
+	}
+}
