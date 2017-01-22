@@ -6,7 +6,7 @@ $names = @('DeleteOldSupportFiles',
            'StartupBuild')
 
 foreach ($name in $names) {
-  Unregister-ScheduledTask -TaskName $name -Confirm:$False -ErrorAction SilentlyContinue
+    Unregister-ScheduledTask -TaskName $name -Confirm:$False -ErrorAction SilentlyContinue
 }
 
 $triggers = @((New-ScheduledTaskTrigger -Weekly -DaysOfWeek Monday -At '1pm'),
@@ -22,5 +22,5 @@ $actions = @((New-ScheduledTaskAction -Execute "$Env:folscode\Batches\DeleteOldS
              (New-ScheduledTaskAction -Execute "$Env:folscode\Batches\BuildOnWorkDay.bat" -Argument 'Win32 Debug 1800'))
 
 for ($i=0; $i -lt $names.count; $i++) {
-  Register-ScheduledTask -TaskName $names[$i] -TaskPath $taskpath -Trigger $triggers[$i] -Action $actions[$i]
+    Register-ScheduledTask -TaskName $names[$i] -TaskPath $taskpath -Trigger $triggers[$i] -Action $actions[$i]
 }
