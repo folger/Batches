@@ -11,26 +11,26 @@ set build_files=%temp%\build_files.txt
 
 title Copy build from %src% to %des%
 
-for /f "delims=" %%i in ('dir "%src%\?r%2Sr*" /b /ad-h /t:c /od') do set a=%%i
+for /f "delims=" %%i in ('dir "%src%\?r%2Sr*" /b /ad-h /t:c /od') do set build=%%i
 
-if [%a%]==[] (
+if [%build%]==[] (
 	echo No build found !!!
 ) else (
-	if exist %des%%a% (
-		echo %a% exists on %des% !!!
+	if exist %des%%build% (
+		echo %build% exists on %des% !!!
 	) else (
-		echo Copying %a% to %des%
-		xcopy "%src%%a%" "%des%%a%" /s /i /y > nul
+		echo Copying %build% to %des%
+		xcopy "%src%%build%" "%des%%build%" /s /i /y > nul
 	)
-	if exist "%zipdes%\%a%.zip" (
-		echo %a%.zip exists on %zipdes% !!!
+	if exist "%zipdes%\%build%.zip" (
+		echo %build%.zip exists on %zipdes% !!!
 	) else (
-		echo Zipping %a% to %zipdes%
+		echo Zipping %build% to %zipdes%
 		REM if exist %build_files% del %build_files%
-		REM for %%i in (%src%%a%\*) do echo %%i >> %build_files%
-		REM 7z a -tzip "%zipdes%\%a%.zip" @%build_files% > nul
+		REM for %%i in (%src%%build%\*) do echo %%i >> %build_files%
+		REM 7z a -tzip "%zipdes%\%build%.zip" @%build_files% > nul
 		REM del %build_files%
-		powershell -executionpolicy bypass -File ps1\Zip-Files.ps1 "%src:"=%%a%" "%zipdes%"
+		powershell -ExecutionPolicy Bypass -Command Compress-Archive -Path '%src:"=%%build%\*.*' -DestinationPath '%zipdes%\%build%.zip'
 	)
 )
 pause
