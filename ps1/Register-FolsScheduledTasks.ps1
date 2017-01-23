@@ -21,6 +21,8 @@ $actions = @((New-ScheduledTaskAction -Execute "$Env:folscode\Batches\DeleteOldS
              (New-ScheduledTaskAction -Execute "$Env:folscode\Batches\GetSupport.bat" -Argument $Env:develop -WorkingDirectory 'G:\F_C_VC32'),
              (New-ScheduledTaskAction -Execute "$Env:folscode\Batches\BuildOnWorkDay.bat" -Argument 'Win32 Debug 1800'))
 
-for ($i=0; $i -lt $names.count; $i++) {
-    Register-ScheduledTask -TaskName $names[$i] -TaskPath $taskpath -Trigger $triggers[$i] -Action $actions[$i]
+$i = 0
+foreach ($name in $names) {
+    Register-ScheduledTask -TaskName $name -TaskPath $taskpath -Trigger $triggers[$i] -Action $actions[$i]
+    $i++
 }
