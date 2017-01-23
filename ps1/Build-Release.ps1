@@ -21,8 +21,7 @@ while ($True) {
         continue
     }
     if ($cmd -eq 'gcp') {
-        $files = git -C $Version.LocalPath status -s
-        $files | Foreach-Object -Process {
+        git -C $Version.LocalPath status -s | Foreach-Object -Process {
             $f = $_.Substring(3)
             $src = "$($Version.LocalPath)\$f"
             $dest = "\\$ComputerName\$($Version.RemotePath)\$f".Replace(':', '$')
