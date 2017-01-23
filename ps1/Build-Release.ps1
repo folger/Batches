@@ -20,6 +20,10 @@ while ($True) {
         $Version = $Versions."$Cmd"
         continue
     }
+    if ($cmd -in @('cls')) {
+        Invoke-Command -ScriptBlock ([ScriptBlock]::Create($Cmd))
+        continue
+    }
     if ($Cmd -like 'build *') {
         $Cmd = "$BuildBat $DevFolder $($Version.Config) $($Cmd.Replace('build ', ''))"
     }
