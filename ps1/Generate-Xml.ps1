@@ -1,6 +1,9 @@
+[CmdletBinding()]
+param()
+
 Get-ChildItem -Directory | Foreach-Object -Process {
     $path = $_.FullName
-    $path
+    Write-Verbose $path
     $json = (Get-Content "$path\Graphing.json") | ConvertFrom-Json
     $ProjectName = $json.Projects[0].ProjectName
 
