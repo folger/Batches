@@ -13,11 +13,21 @@ $Session = New-PSSession -ComputerName $ComputerName -Credential $Credential
 
 $Version = $Versions."$($ValidVersions[0])"
 while ($True) {
-    $DevFolder = $Version.Path
+    $DevFolder = $Version.RemotePath
     $Cmd = Read-Host -Prompt "[$ComputerName]($DevFolder)"
     if ($Cmd.Length -eq 0) {break}
     if ($Cmd -in $ValidVersions) {
         $Version = $Versions."$Cmd"
+        continue
+    }
+    if ($cmd -eq 'gcp') {
+        $files = git -C $Version.LocalPath status -s
+        $files | Foreach-Object -Process {
+            $f = $_.Substring(3)
+            $src = "$($Version.LocalPath)\$f"
+            $dest = "\\$ComputerName\$($Version.RemotePath)\$f".Replace(':', '$')
+            Copy-Item -Destination $dest -LiteralPath $src
+        }
         continue
     }
     if ($cmd -in @('cls')) {

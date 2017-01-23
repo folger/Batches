@@ -4,11 +4,13 @@
 	"BuildBat": "E:\\BatchBuild\\build.bat",
 	"Versions": {
 		"94": {
-			"Path": "E:\\Dev",
+			"LocalPath": "E:\\Dev",
+			"RemotePath": "E:\\Dev",
 			"Config": "Release"
 		},
 		"95": {
-			"Path": "E:\\Dev_95",
+			"LocalPath": "E:\\Dev_95",
+			"RemotePath": "E:\\Dev_95",
 			"Config": "UnicodeRelease"
 		}
 	}
