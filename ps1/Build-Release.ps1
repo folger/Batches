@@ -25,10 +25,13 @@ while ($true) {
     }
     if ($cmd -eq 'gcp') {
         git -C $version.LocalPath status -s | Foreach-Object -Process {
-            $f = $_.Substring(3)
-            $src = "$($version.LocalPath)\$f"
-            $dest = "\\$computerName\$($version.RemotePath)\$f".Replace(':', '$')
-            Copy-Item -Destination $dest -LiteralPath $src
+            if ($_[1] -eq 'M') {
+                $f = $_.Substring(3)
+                $f
+                $src = "$($version.LocalPath)\$f"
+                $dest = "\\$computerName\$($version.RemotePath)\$f".Replace(':', '$')
+                Copy-Item -Destination $dest -LiteralPath $src
+            }
         }
         continue
     }
