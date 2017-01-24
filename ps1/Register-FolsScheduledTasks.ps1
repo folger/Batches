@@ -1,3 +1,6 @@
+[CmdletBinding()]
+param()
+
 $taskpath = 'folgers'
 $names = @('DeleteOldSupportFiles',
            'GetPDBs',

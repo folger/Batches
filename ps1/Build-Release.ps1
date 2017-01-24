@@ -1,3 +1,6 @@
+[CmdletBinding()]
+param()
+
 $json = (Get-Content "$((Get-Item $MyInvocation.MyCommand.Name).BaseName).json") -join "`n" | ConvertFrom-Json
 
 $computerName = $json.ComputerName

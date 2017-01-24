@@ -1,3 +1,6 @@
+[CmdletBinding()]
+param()
+
 $title = "Select App to work"
 if ($PSVersionTable.PSVersion.Major -gt 2) {
     Add-Type -AssemblyName System.Windows.Forms
