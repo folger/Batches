@@ -1,12 +1,12 @@
 $title = "Select App to work"
 if ($PSVersionTable.PSVersion.Major -gt 2) {
     Add-Type -AssemblyName System.Windows.Forms
-    $FolderBrowser = New-Object System.Windows.Forms.FolderBrowserDialog -Property @{
+    $folderBrowser = New-Object System.Windows.Forms.FolderBrowserDialog -Property @{
         Description = $title
-        SelectedPath = $PSScriptRoot
+        SelectedPath = $pSScriptRoot
     }
-    if ($FolderBrowser.ShowDialog() -eq "OK") {
-        $FolderBrowser.SelectedPath
+    if ($folderBrowser.ShowDialog() -eq "OK") {
+        $folderBrowser.SelectedPath
     }
 }
 else {
