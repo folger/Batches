@@ -17,12 +17,16 @@ Get-DiskInventory -computername SERVER-R2 -drivetype 3
 #>
 [CmdletBinding()]
 param (
-    [Parameter(Mandatory=$True, HelpMessage="Enter a computer name to query")]
+    [Parameter(Mandatory=$True,
+              #ValueFromPipeline=$True,
+              #ValueFromPipelineByPropertyName=$True,
+              HelpMessage="Enter a computer name to query")]
     [Alias('HostName')]
-    [string]$ComputerName,
+    [String]$ComputerName,
 
     [ValidateSet(2, 3)]
-    [int]$DriveType = 3
+    #[ValidatePattern('\w+')]
+    [Int]$DriveType = 3
 )
 Write-Verbose "Connecting to $ComputerName"
 Write-Verbose "Looking for drive type $DriveType"
