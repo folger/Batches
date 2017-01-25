@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
 Get-DiskInventory retrieves logical disk information from one or
 more computers.
@@ -26,6 +26,7 @@ param (
 
     [ValidateSet(2, 3)]
     #[ValidatePattern('\w+')]
+    #[ValidateScript({Test-Path $_})]
     [Int]$DriveType = 3
 )
 Write-Verbose "Connecting to $ComputerName"
