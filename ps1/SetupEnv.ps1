@@ -1,6 +1,6 @@
 $vars = @{'Develop'='D:\Dev';
     'folscode'='D:\folscode';
-    'HOME'='%USERPROFILE%';
+    'HOME'="$Env:USERPROFILE";
     'Diff'='D:\BoxSync\Windows\Beyond Compare 3\BComp.exe'
 }
 
