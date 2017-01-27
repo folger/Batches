@@ -15,7 +15,7 @@ for values. 3 is a fixed disk, and is the default.
 .EXAMPLE
 Get-DiskInventory -computername SERVER-R2 -drivetype 3
 #>
-[CmdletBinding()]
+[CmdletBinding(<#SupportsShouldProcess=$True, ConfirmImpact='Medium'#>)]
 param (
     [Parameter(Mandatory=$True,
               #ValueFromPipeline=$True,
