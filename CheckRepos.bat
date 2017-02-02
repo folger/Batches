@@ -14,9 +14,9 @@ cls
 
 set repos="%home%\vimfiles"^
 		Batches^
+		ps1^
 		folstools^
 		Python^
-		pk10^
 		djangobook^
 		JIRA^
 		folsnet^
