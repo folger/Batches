@@ -88,7 +88,7 @@ set modules= Origin%version%^
             ORserve9^
 			CrashRpt1402
 
-for /f "delims=" %%i in ('dir "\\fs1\Builds\%version%\I\?r9*" /b /ad-h /t:c /od') do set latest=%%i
+for /f "delims=" %%i in ('dir "\\fs1\Builds\%version%\I\Ir9*" /b /ad-h /t:c /od') do set latest=%%i
 
 if [%latest%]==[] (
 	echo No Build Found
