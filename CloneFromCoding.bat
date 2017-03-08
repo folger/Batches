@@ -18,7 +18,8 @@ decodecaptchar ^
 htsecdata ^
 pk10 ^
 djangobook ^
-folsnet
+folsnet ^
+ps1
 
 for %%x in (%repos%) do (
 	echo === %%x ===
