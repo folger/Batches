@@ -70,5 +70,6 @@ start notepad %app_results%
 set app_results=%temp%\app_results.txt
 echo.
 for /f "delims=" %%a in ('findstr "\<Error\>" %app_results%') do echo %%a
+rd /s /q %apps% 2>nul
 echo Done~~~
 pause
