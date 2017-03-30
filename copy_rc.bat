@@ -15,6 +15,7 @@ set entries="od.rc,vc32\od" ^
 			"okUtil.rc,MFC\okUtil" ^
 			"OIDE.rc,MFC\oide" ^
 			"OCntrls.rc,MFC\OCntrls" ^
+			"OTreeEditor.rc,MFC\OTreeEditor" ^
 			"ohttp.rc,Module\ohttp" ^
 			"Import Wizard.rc,DDK Tools\ImportWiz" ^
 			"Tab_Test.rc,DDK Tools" ^
