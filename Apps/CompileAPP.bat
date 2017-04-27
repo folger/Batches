@@ -4,7 +4,6 @@ set me=%~n0
 set parent=%~dp0
 
 set apppath=%1
-set apppath=%apppath:"=%
 set apps=%localappdata%\Originlab\Apps
 
 title Checking Apps ...
@@ -24,6 +23,7 @@ echo.>%compileogs%
 echo Installing Apps ...
 rd /s /q %apps% 2>nul
 set installlater=
+set apps_count=0
 for /r %apppath% %%a in (*.opx) do (
 	set later=0
 	set b=%%a
@@ -35,6 +35,7 @@ for /r %apppath% %%a in (*.opx) do (
 	) else (
 		echo run -opxi !b!;>>%compileogs%
 	)
+	set /a apps_count=!apps_count!+1
 )
 if not [%installlater%]==[] (
 	for %%a in (%installlater%) do (
@@ -51,6 +52,7 @@ rd /s /q %localappdata%\Originlab\%version%\TMP\OCTemp 2>nul
 set app_results=%temp%\app_results.txt
 set temp_result=%temp%\temp_result.txt
 echo.>%app_results%
+set current_app=1
 for /d %%a in (%apps%\*) do (
 	echo.>%compileogs%
 	echo win -n n;>>%compileogs%
@@ -60,14 +62,14 @@ for /d %%a in (%apps%\*) do (
 	echo run.section^(app_olocal, main, "%%~na"^);>>%compileogs%
 	echo save -n notes %temp_result%;>>%compileogs%
 	echo ;doc -ss;exit;>>%compileogs%
-	echo Compiling %%~na ...
+	echo ^(!current_app!/!apps_count!^) Compiling %%~na ...
+	set /a current_app=!current_app!+1
 	%origin% -rs run.section^(%compileogs%^)
 	type %temp_result% >> %app_results%
 )
 
 start notepad %app_results%
 
-set app_results=%temp%\app_results.txt
 echo.
 for /f "delims=" %%a in ('findstr "\<Error\>" %app_results%') do echo %%a
 rd /s /q %apps% 2>nul
