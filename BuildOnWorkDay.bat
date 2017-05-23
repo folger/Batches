@@ -10,12 +10,12 @@ if %curdate%==Sat set weekend=1
 if %curdate%==Sun set weekend=1
 if %weekend%==0 (
 	pushd %parent%
-	call pull_and_build.bat %1 %2
+	call pull_and_build.bat %1 %2 %3
 	popd
 )
 
-set /a count=%3
-if not [%3]==[] (
+set /a count=%4
+if not [%4]==[] (
 :showcount
 	title Windows will shutdown in %count% seconds, Ctrl+C to cancel
 	timeout /t 1 > nul

@@ -3,12 +3,13 @@ setlocal enableextensions
 set me=%~n0
 set parent=%~dp0
 
-set platform=%1
-set configuration=%2
+set dev=%1
+set platform=%2
+set configuration=%3
 
-title Pull Origin from Git and Build
+title (%dev%) Pull Origin from Git and Build
 
-pushd %develop%
+pushd %dev%
 
 echo Pulling from git ...
 
@@ -40,4 +41,4 @@ call maketags.bat
 title Platform=%platform% Configuration=%configuration%
 
 call "%VS110COMNTOOLS%..\..\VC\vcvarsall.bat"
-msbuild  "%develop%\Source\vc32\orgmain\OriginAll.sln" /p:Configuration=%configuration% /p:Platform=%platform% /m
+msbuild  "%dev%\Source\vc32\orgmain\OriginAll.sln" /p:Configuration=%configuration% /p:Platform=%platform% /m
