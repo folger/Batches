@@ -25,7 +25,6 @@ set modules= Origin%version%^
             octree_Utils9^
             ocUtils9^
             gsodbc9^
-            Lababf32^
             libapr^
             libsie^
             MOCABaseTypes9^
