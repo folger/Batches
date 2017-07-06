@@ -16,6 +16,7 @@ Startup ^
 PlotPopup ^
 Palettes ^
 Patterns ^
+AppCentral ^
 LTF
 
 @echo on
