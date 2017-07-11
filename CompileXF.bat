@@ -17,7 +17,7 @@ set version=%origin:~6,2%
 echo Found %origin% ...
 
 echo Start %origin% to compile ...
-%origin% -rs list xc u;exit;
+%origin% -rs list xc;exit;
 
 echo.
 for /f "delims=" %%a in ('findstr "\<failed\>" C:\c%version%\xfocb.txt') do echo %%a
