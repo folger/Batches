@@ -5,7 +5,7 @@ set parent=%~dp0
 
 title Compile X-Functions
 
-for /f "delims=" %%i in ('dir Origin*.exe /b /t:w /od') do set origin=%%i
+for /f "delims=" %%i in ('dir Origin9*.exe /b /t:w /od') do set origin=%%i
 :found_origin
 if [%origin%]==[] (
 	echo Origin executable cannot be found^^!^^!^^!
