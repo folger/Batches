@@ -3,6 +3,7 @@ setlocal enableextensions enabledelayedexpansion
 set me=%~n0
 set parent=%~dp0
 
+pushd %parent%
 for /f "delims=" %%i in ('dir Origin9*.exe /b /t:w /od') do set origin=%%i
 :found_origin
 if [%origin%]==[] (
