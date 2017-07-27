@@ -1,7 +1,16 @@
 @echo off
-setlocal enableextensions
+setlocal enableextensions enabledelayedexpansion
 set me=%~n0
 set parent=%~dp0
+
+pushd %parent%
+for %%Y in (otp otw otm ogs ini cnf bmp xml ogo dot flt) do (
+	for %%X in (%develop%\Origin\*.%%Y) do (
+		set file=%%~nxX
+		del !file! 2>nul
+		mklink "!file!" "%%X"
+	)
+)
 
 set @folders=CustomTable ^
 Filters ^
@@ -19,10 +28,8 @@ Patterns ^
 AppCentral ^
 LTF
 
-@echo on
-pushd %parent%
 for %%X in (%@folders%) do (
 	rmdir /s /q %%X
-	mklink /D %%X %develop%\Origin\%%X
+	mklink /D "%%X" "%develop%\Origin\%%X"
 )
-popd
+pause
