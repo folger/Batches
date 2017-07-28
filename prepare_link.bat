@@ -26,6 +26,7 @@ PlotPopup ^
 Palettes ^
 Patterns ^
 AppCentral ^
+X-Functions ^
 LTF
 
 for %%X in (%@folders%) do (
