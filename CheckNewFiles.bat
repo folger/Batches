@@ -3,6 +3,8 @@ setlocal enableextensions enabledelayedexpansion
 set me=%~n0
 set parent=%~dp0
 
+title New files of [ %cd% ] repo
+
 for /f "delims=" %%a in ('git log --oneline --name-status -n %1') do (
 	set line=%%a
 	set line2=!line:A	=!
