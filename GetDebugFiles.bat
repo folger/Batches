@@ -9,7 +9,7 @@ set version=%3
 set format=%4
 set exepath=%5
 
-for /f "delims=" %%i in ('dir "\\fs1\Builds\%version%\I\Ir9*" /b /ad-h /t:c /od') do set latest=%%i
+for /f "delims=" %%i in ('dir "\\fs1\Builds\%version%\I\Ir9*" /b /ad-h /t:w /od') do set latest=%%i
 
 if [%latest%]==[] (
 	echo No Build Found
