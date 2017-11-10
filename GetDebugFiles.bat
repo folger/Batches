@@ -26,8 +26,8 @@ for %%i in (0 1 2 3 4) do (
 set targetpath=\\fs1\dev\%format%s\%latest%
 
 md %targetpath% 2>nul
-pushd %targetpath%
 
+pushd %targetpath%
 for /f "delims=" %%a in ('powershell -executionpolicy bypass -File "%parent%GetOrgModules.ps1" "%exepath%"') do (
 	set file=%%a.!format!
 	set file=!file:$=!
@@ -39,6 +39,7 @@ for /f "delims=" %%a in ('powershell -executionpolicy bypass -File "%parent%GetO
 		del !zipfile!
 	)
 )
+popd
 explorer %targetpath%
 echo Done~~~
 pause
