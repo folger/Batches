@@ -21,11 +21,10 @@ Themes ^
 Localization ^
 Hints ^
 Templates ^
-Startup ^
 PlotPopup ^
 Palettes ^
 Patterns ^
-AppCentral ^
+Ohtml ^
 X-Functions ^
 LTF
 
