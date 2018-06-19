@@ -30,15 +30,16 @@ if not %errorlevel%==0 (
 	goto :startpull
 )
 
-if %platform%==Win32 (
-	for %%a in (ok oks) do rd /s /q Out\Temp\buildtmp32\%%a
-)
+title Removing Out folder ...
+rd /s /q Out
 
 popd
 
-call maketags.bat
+REM call maketags.bat
 
-title Platform=%platform% Configuration=%configuration%
 
 call "%VS110COMNTOOLS%..\..\VC\vcvarsall.bat"
+title (clucene.sln) Platform=%platform% Configuration=%configuration:Unicode=%
+msbuild  "%dev%\Source\Module\OrgCLucene\clucene.sln" /p:Configuration=%configuration:Unicode=% /p:Platform=%platform% /m
+title (OriginAll.sln) Platform=%platform% Configuration=%configuration%
 msbuild  "%dev%\Source\vc32\orgmain\OriginAll.sln" /p:Configuration=%configuration% /p:Platform=%platform% /m
