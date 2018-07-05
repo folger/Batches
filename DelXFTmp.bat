@@ -7,6 +7,8 @@ set exts=xfd _XF
 
 :loop
 
+echo Hanlding %1 ...
+
 pushd %1
 for %%a in (%exts%) do (
 	del *.%%a
