@@ -35,6 +35,7 @@ for /f "delims=" %%a in ('powershell -executionpolicy bypass -File "%parent%GetO
 		set zipfile=!file!.zip
 		title Downloading !file! into !targetpath!
 		curl -u !username!:!password! -O ftp://98.118.55.13/Builds/!version!/MAP_and_PDB/!latest!/!zipfile!
+		REM powershell -ExecutionPolicy Bypass -Command "$webclient=New-Object System.Net.WebClient;$uri=New-Object System.Uri^('ftp://!username!:!password!@98.118.55.13/Builds/96/MAP_and_PDB/Ir96Sr0_85/Outl96_64.pdb.zip');$webclient.DownloadFile($uri, 'Outl96_64.pdb.zip')"
 		unzip !zipfile!
 		del !zipfile!
 	)
