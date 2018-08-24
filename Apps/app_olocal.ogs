@@ -16,18 +16,18 @@
 			olocal_compile;
 		}
 	}		
-	findfiles strAppPath$ "*.oxf";
+	findfiles path:=strAppPath$ ext:="*.oxf";
 	loadfiles();
 
 	def olocal_compile
 	{
 		run.loadoc(%(str$), 16);
 	}	
-	findfiles strAppPath$ "*.c";
+	findfiles path:=strAppPath$ ext:="*.c";
 	loadfiles();
-	findfiles strAppPath$ "*.cpp";
+	findfiles path:=strAppPath$ ext:="*.cpp";
 	loadfiles();
-	findfiles strAppPath$ "*.ocz";
+	findfiles path:=strAppPath$ ext:="*.ocz";
 	loadfiles();
 
 	ty;
