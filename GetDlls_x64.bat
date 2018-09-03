@@ -19,5 +19,5 @@ set platform=%me:GetDlls_=%
 
 title %platform% (%date% %time%)
 
-xcopy \\fs1\Dev\%version%_dlls\%platform% . /s /y
+xcopy \\fs1\Dev\%version%_dlls\%platform% . /s /y /c
 pause
