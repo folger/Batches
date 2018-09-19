@@ -27,7 +27,7 @@ set apps_count=0
 for /r %apppath% %%a in (*.opx) do (
 	set later=0
 	set b=%%a
-	set c=!b:Import Chem Data=!
+	set c=!b:337=!
 	if not !b!==!c! set later=1
 	if !later!==1 (
 		if not [!installlater!]==[] set installlater=!installlater! 
