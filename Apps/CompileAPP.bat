@@ -59,7 +59,8 @@ for /d %%a in (%apps%\*) do (
 	echo type.redirection=2;>>%compileogs%
 	echo type.notes$=notes;>>%compileogs%
 	echo @RBA=1;>>%compileogs%
-	echo run.section^(app_olocal, main, "%%~na"^);>>%compileogs%
+	echo run.loadoc^(%parent%utils.cpp, 16^);>>%compileogs%
+	echo run.section^(app_olocal, main, "%%~na" $^(GetAppIDByName^("%%~na"^)^)^);>>%compileogs%
 	echo save -n notes %temp_result%;>>%compileogs%
 	echo ;doc -ss;exit;>>%compileogs%
 	echo ^(!current_app!/!apps_count!^) Compiling %%~na ...

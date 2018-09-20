@@ -1,5 +1,5 @@
 [main]
-	ty "Compiling %1 ...";
+	ty "Compiling %1 [%2] ...";
 	string strAppPath = %@a%1;
 	
 	def olocal_compile
