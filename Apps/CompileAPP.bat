@@ -71,7 +71,7 @@ for /d %%a in (%apps%\*) do (
 start notepad %app_results%
 
 echo.
-for /f "delims=" %%a in ('findstr "\<Error\>" %app_results%') do echo %%a
-rd /s /q %apps% 2>nul
+for /f "delims=" %%a in ('findstr "\<:Error\>" %app_results%') do echo %%a
+REM rd /s /q %apps% 2>nul
 echo Done~~~
 pause
