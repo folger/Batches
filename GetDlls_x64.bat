@@ -17,7 +17,7 @@ set version=%version:_64=%
 
 set platform=%me:GetDlls_=%
 
-title %platform% (%date% %time%)
+title %parent% [%platform%] (%date% %time%)
 
 xcopy \\fs1\Dev\%version%_dlls\%platform% . /s /y /c
 pause
