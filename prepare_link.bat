@@ -5,6 +5,7 @@ set parent=%~dp0
 
 pushd %parent%
 for %%Y in (otp otw otm otpu otwu otmu ogs ini cnf bmp xml ogo dot flt) do (
+	del *.%%Y
 	for %%X in (%develop%\Origin\*.%%Y) do (
 		set file=%%~nxX
 		del !file! 2>nul
