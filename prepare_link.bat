@@ -26,10 +26,14 @@ Palettes ^
 Patterns ^
 Ohtml ^
 X-Functions ^
-LTF
+LTF ^
+JS
+
+echo.
+echo.
 
 for %%X in (%@folders%) do (
-	rmdir /s /q %%X
-	mklink /D "%%X" "%develop%\Origin\%%X"
+	rmdir /s /q %%X 2>nul
+	mklink /j "%%X" "%develop%\Origin\%%X"
 )
 pause
