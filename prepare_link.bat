@@ -28,13 +28,14 @@ Patterns ^
 Ohtml ^
 X-Functions ^
 LTF ^
-JS
+JS ^
+CtxtPopup
 
 echo.
 echo.
 
 for %%X in (%@folders%) do (
 	rmdir /s /q %%X 2>nul
-	mklink /j "%%X" "%develop%\Origin\%%X"
+	mklink /d "%%X" "%develop%\Origin\%%X"
 )
 pause
