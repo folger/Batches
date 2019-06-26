@@ -23,6 +23,7 @@ if not [%gitstatus%]==[] (
 git gc
 :startpull
 git pull --rebase
+git submodule update --init
 set waitsec=60
 if not %errorlevel%==0 (
 	echo Pull fail, wait %waitsec% to retry
