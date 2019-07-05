@@ -40,9 +40,9 @@ REM call maketags.bat
 
 REM set vcpath= %VS110COMNTOOLS%..\..\VC
 set vcpath=C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build
-set sln_suffix=_19
+set sln_suffix=
 call "%vcpath%\vcvarsall.bat" x86_amd64
-title (clucene%sln_suffix%.sln) Platform=%platform% Configuration=%configuration:Unicode=%
-msbuild  "%dev%\Source\Module\OrgCLucene\clucene%sln_suffix%.sln" /p:Configuration=%configuration:Unicode=% /p:Platform=%platform% /m
+title (clucene%sln_suffix%.sln) Platform=%platform% Configuration=%configuration%
+msbuild  "%dev%\Source\Module\OrgCLucene\clucene%sln_suffix%.sln" /p:Configuration=%configuration% /p:Platform=%platform% /m
 title (OriginAll%sln_suffix%.sln) Platform=%platform% Configuration=%configuration%
-msbuild  "%dev%\Source\vc32\orgmain\OriginAll%sln_suffix%.sln" /p:Configuration=%configuration% /p:Platform=%platform% /m
+msbuild  "%dev%\Source\OriginAll%sln_suffix%.sln" /p:Configuration=%configuration% /p:Platform=%platform% /m
