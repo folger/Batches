@@ -45,6 +45,6 @@ call "%vcpath%\vcvarsall.bat" x86_amd64
 title (clucene%sln_suffix%.sln) Platform=%platform% Configuration=%configuration%
 msbuild  "%dev%\Source\Module\OrgCLucene\clucene%sln_suffix%.sln" /p:Configuration=%configuration% /p:Platform=%platform% /m
 title (OpenCV%sln_suffix%.sln) Platform=%platform% Configuration=%configuration%
-msbuild  "%dev%\Source\Module\OrgCLucene\OpenCV%sln_suffix%.sln" /p:Configuration=%configuration% /p:Platform=%platform% /m
+msbuild  "%dev%\Source\Module\OpenCV\Built\OpenCV%sln_suffix%.sln" /p:Configuration=%configuration% /p:Platform=%platform% /m
 title (OriginAll%sln_suffix%.sln) Platform=%platform% Configuration=%configuration%
 msbuild  "%dev%\Source\OriginAll%sln_suffix%.sln" /p:Configuration=%configuration% /p:Platform=%platform% /m
